@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "970277008252",
+    "firebase_url": "https://fir-test-efafd-default-rtdb.firebaseio.com",
+    "project_id": "fir-test-efafd",
+    "storage_bucket": "fir-test-efafd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970277008252:android:d82adf3ff54e50e33aaaf9",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRCK1UNNncPGzITnWHBZx8nCivv25K9lQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970277008252:android:e3305575b3fee9dc3aaaf9",
+        "android_client_info": {
+          "package_name": "com.example.linkedinapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRCK1UNNncPGzITnWHBZx8nCivv25K9lQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

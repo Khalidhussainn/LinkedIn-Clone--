@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/linkedin"
+        android:layout_marginLeft="110dp"
+        />
+
+    <Button
+
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:backgroundTint="@color/Blue"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="200dp"
+        android:layout_marginHorizontal="30dp"
+         />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:backgroundTint="@color/Blue"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="30dp"
+         />
+</RelativeLayout>
