@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Set up sign up button click listener ne file
+        // Set up sign up button click listener
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)  {
