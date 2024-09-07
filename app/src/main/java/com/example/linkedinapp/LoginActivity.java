@@ -53,10 +53,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Set up sign up button click listener
+        // Set up sign up button click listener ne file
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)  {
                 // Handle sign up button click
                 String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Set up forgot password link click listener
+        // Set up forgot password link click listener hello
         tvForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
