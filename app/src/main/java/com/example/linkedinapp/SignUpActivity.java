@@ -38,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(getApplicationContext(),MainActivity2.class);
+                Intent i =new Intent(getApplicationContext(),Linkedinpage.class);
                 startActivity(i);
             }
         });

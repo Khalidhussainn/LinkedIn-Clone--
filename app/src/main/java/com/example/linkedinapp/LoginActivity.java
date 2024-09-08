@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!email.isEmpty() && !password.isEmpty()) {
                     saveUserData(email, password);
-                    Intent i = new Intent(getApplicationContext(), MainActivity2.class);
+                    Intent i = new Intent(getApplicationContext(), Linkedinpage.class);
                     startActivity(i);
                 } else {
                     Toast.makeText(LoginActivity.this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
