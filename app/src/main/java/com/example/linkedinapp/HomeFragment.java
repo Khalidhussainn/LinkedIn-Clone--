@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,7 +39,9 @@ public class HomeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         addPost = view.findViewById(R.id.add_post);
+
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(postList);
         recyclerView.setAdapter(postAdapter);
@@ -54,14 +55,37 @@ public class HomeFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Posts");
+
         fetchPosts();
 
         return view;
     }
 
-    protected void addPost(Post post) {
-        myRef.child(post.getId()).setValue(post);
-        Log.d("TAG", "Post added");
+    private void fetchPosts() {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                postList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Post post = snapshot.getValue(Post.class);
+                    postList.add(post);
+                }
+                postAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("TAG", "Failed to read posts", databaseError.toException());
+            }
+        });
+    }
+
+    private void addPost(Post post) {
+        DatabaseReference newPostRef = myRef.push();
+        post.setId(newPostRef.getKey()); // Set the generated key as the post ID
+        newPostRef.setValue(post)
+                .addOnSuccessListener(aVoid -> Log.d("TAG", "Post added"))
+                .addOnFailureListener(e -> Log.e("TAG", "Failed to add post", e));
     }
 
     private void showAddPostDialog() {
@@ -74,6 +98,7 @@ public class HomeFragment extends Fragment {
         builder.setView(dialogView);
 
         // Get references to the EditText and Button in the dialog layout
+        EditText postUsername = dialogView.findViewById(R.id.username);
         EditText postContent = dialogView.findViewById(R.id.content);
         Button submitPost = dialogView.findViewById(R.id.submit_post);
 
@@ -84,43 +109,27 @@ public class HomeFragment extends Fragment {
         submitPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = postUsername.getText().toString();
                 String postText = postContent.getText().toString();
 
-                if (!postText.isEmpty()) {
-                    Post post = new Post("Anonymous", postText, 0, 0, 0);
+                if (!username.isEmpty() && !postText.isEmpty()) {
+                    // Create a new post object with the entered username and content
+                    Post post = new Post(username, postText, 0, 0, 0);
                     addPost(post);
-                    fetchPosts();
+                    fetchPosts(); // Refresh the list after adding a new post
                     dialog.dismiss();
                 } else {
-                    postContent.setError("Post content can't be empty!");
-                }
-            }
-        });
-
-        // Show the dialog
-        dialog.show();
-    }
-
-    private void fetchPosts() {
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                postList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Post post = snapshot.getValue(Post.class);
-                    if (post != null) {
-                        postList.add(post);
+                    if (username.isEmpty()) {
+                        postUsername.setError("Username can't be empty!");
+                    }
+                    if (postText.isEmpty()) {
+                        postContent.setError("Post content can't be empty!");
                     }
                 }
-                postAdapter.notifyDataSetChanged();
-                Log.d("TAG", "Number of posts: " + postList.size());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
+
+
+        dialog.show();
     }
 }
-
