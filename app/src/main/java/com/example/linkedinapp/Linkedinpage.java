@@ -1,6 +1,8 @@
 package com.example.linkedinapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,9 +35,27 @@ public class Linkedinpage extends AppCompatActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.notifications_icon).setText("Notifications");
         tabLayout.getTabAt(4).setIcon(R.drawable.suitcase).setText("Jobs");
 
-        profileImg.setOnClickListener(view ->
-                Toast.makeText(Linkedinpage.this, "Profile image clicked", Toast.LENGTH_SHORT).show()
-        );
+//        profileImg.setOnClickListener(view ->
+////                Toast.makeText(Linkedinpage.this, "Profile image clicked", Toast.LENGTH_SHORT).show()
+
+//        );
+
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Replace the current fragment with ProfileFragment
+                ProfileFragment profileFragment = new ProfileFragment();
+
+                // Assuming you're calling this inside an Activity that can manage Fragments
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.framelayout, profileFragment)  // 'content_frame' is your FrameLayout or FragmentContainerView
+                        .addToBackStack(null)  // Optional: adds this transaction to the back stack so you can navigate back
+                        .commit();
+            }
+        });
+
+
 
         // Set the default fragment
         if (savedInstanceState == null) {

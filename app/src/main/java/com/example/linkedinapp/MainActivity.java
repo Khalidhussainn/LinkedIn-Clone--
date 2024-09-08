@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Button btnLogin, btnSignUp;
+    private Button btnLogin, btnSignUp,Directbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
+        Directbtn = findViewById(R.id.Directbtn);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                Intent i =new Intent(getApplicationContext(),SignUpActivity.class);
                startActivity(i);
-
+            }
+        });
+        Directbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(getApplicationContext(),Linkedinpage.class);
+                startActivity(i);
             }
         });
     }
