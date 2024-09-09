@@ -2,4 +2,10 @@
     <string name="app_name">LInkedinApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<string name="notification_1"><![CDATA[<b>Muhammad Saqlain</b> and 1 other person viewed your profile. See all views.]]></string>
+<string name="notification_2"><![CDATA[<b>Khalid Hussain</b> mentioned you and others in a comment in Post]]></string>
+<string name="notification_3"><![CDATA[<b>Akhuwat</b> liked your post.]]></string>
+<string name="notification_4"><![CDATA[<b>Ali</b> commented on your post.]]></string>
+<string name="notification_5"><![CDATA[<b>Hamza</b> sent you a friend request.]]></string>
+<string name="notification_6"><![CDATA[<b>Faheem</b> liked your comment.]]></string>
 </resources>

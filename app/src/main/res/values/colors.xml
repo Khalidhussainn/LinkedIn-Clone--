@@ -10,4 +10,10 @@
     <color name="colorPrimary">#FF6200EE</color>
     <color name="colorPrimaryDark">#FF3700B3</color>
     <color name="colorAccent">#FF03DAC5</color>
+    <color name="job_title_color">#333</color>
+    <color name="job_company_color">#666</color>
+    <color name="job_location_color">#999</color>
+    <color name="job_description_color">#333</color>
+    <color name="job_requirements_color">#666</color>
+    <color name="apply_button_color">#fff</color>
 </resources>

@@ -11,4 +11,27 @@
         <item name="android:background">@drawable/searchview_background</item>
         <item name="android:layout_marginBottom">0dp</item>
     </style>
+
+
+        <style name="JobTitleStyle">
+            <item name="android:textSize">18sp</item>
+            <item name="android:textStyle">bold</item>
+            <item name="android:textColor">@color/job_title_color</item>
+        </style>
+
+        <style name="JobDescriptionStyle">
+            <item name="android:textSize">14sp</item>
+            <item name="android:textColor">@color/job_description_color</item>
+        </style>
+
+        <style name="JobRequirementsStyle">
+            <item name="android:textSize">12sp</item>
+            <item name="android:textColor">@color/job_requirements_color</item>
+        </style>
+
+        <style name="ApplyButtonStyle">
+            <item name="android:textColor">@color/apply_button_color</item>
+            <item name="android:background">@drawable/apply_button_background</item>
+        </style>
+
 </resources>
